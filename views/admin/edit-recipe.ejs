@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/recipes.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <section id="recipes-background">
+        <h1>Edit Recipe</h1>
+    </section>
+    <hr>
+    <% if(errorMessage) { %>
+        <p class="errorMessage"><%= errorMessage %></p>
+    <% } %>
+    <form class="login-form" action="/edit-recipe" method="POST" enctype="multipart/form-data">
+        <div class="form-control">
+        <label for="name">Recipe Name</label>
+        <input type="text" name="name" value="<%= name %>" required>
+        </div>
+        
+        <div class="form-control">
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image" required>
+        </div>
+        <div class="time">
+            <p>Preparation Time</p>
+            <input type="number" name="prephrs" value="<%= prephrs %>" required>
+            <span>hrs : </span>
+            <input type="number" name="prepmin" value="<%= prepmin %>" required>
+            <span>min</span>
+        </div>
+        <div class="time">
+            <p>Cooking Time</p>
+            <input type="number" name="cookhrs" value="<%= cookhrs %>" required>
+            <span>hrs : </span>
+            <input type="number" name="cookmin" value="<%= cookmin %>" required>
+            <span>min</span>
+        </div>
+        <div class="yields">
+            <label for="yields">Yields:</label>
+            <input type="number" value="<%= yields %>" name="yields" required>
+            <span>Servings</span>
+        </div>
+        <div >
+            
+            <% for(let i=1; i<=100; i++){ %>
+                <div class="ing-input">
+                    <p>Ingredient #<%= i %>:</p>
+                    <span >Name : </span>
+                    <input type="text" name="ingName" value="<%= ingredients[i-1] ? ingredients[i-1].name : '' %>">
+                    <br>
+                    <span >Quantity : </span>
+                    <input type="text" name="ingQuantity"  value="<%= ingredients[i-1] ? ingredients[i-1].quantity : '' %>">
+                </div>
+            <% } %>
+            
+            <span class="add-ing">Add ingredients...</span>
+        </div>
+        <div class="form-control">
+            <label for="description" style="color: #40ba37;">Description</label>
+            <textarea name="description" cols="30" rows="10" required><%= description %></textarea>
+        </div>
+        <button class="btn" type="submit">Save</button>
+        <input type="hidden" value="<%= recipeId %>" name="recipeId">
+    </form>
+    <hr>
+
+    <script src="/js/shared.js"></script>
+    <script src="/js/edit-recipe.js"></script>
+</body>
+</html>

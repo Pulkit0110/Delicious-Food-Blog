@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/account.css">
+</head>
+<body class="background">
+    <%- include('../includes/navigation.ejs') %>
+    <% if(!user) { %>
+        <h1 style="color: white;">You are not authorized to access this page.</h1>
+    <% } else { %>
+        
+        <section class="profile-container">
+            <% if(errorMessage) { %>
+                <p class="errorMessage"><%= errorMessage %></p>
+            <% } %>
+            <h1 class="username"><%= user.username %></h1>
+            <form action="/edit-profile" method="POST">
+                <div class="form-control__edit">
+                    <label for="firstName">First name</label>
+                    <input type="text" name="firstName" value="<%= user.firstName %>" required>
+                </div>
+                <div class="form-control__edit">
+                    <label for="lastName">Last name</label>
+                    <input type="text" name="lastName" value="<%= user.lastName %>" required>
+                </div>
+                
+                <div class="form-control__edit">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" value="<%= user.email %>" required>
+                </div>
+                <button class="btn" type="submit">Save</button>
+            </form>
+            
+        </section>
+    <% } %>
+    <script src="/js/shared.js"></script>
+</body>
+</html>

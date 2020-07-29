@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <section class="auto-image-slider">
+            <img src="/images/1.jpg" class="auto-image-slider__item" alt="Delicious">
+            <img src="/images/2.jpg" class="auto-image-slider__item" alt="Delicious">
+            <img src="/images/3.jpg" class="auto-image-slider__item" alt="Delicious">
+            <button class="auto-image-slider__left" onclick="sliderIndexDec()">
+                <span class="auto-image-slider__45-left"></span>
+                <span class="auto-image-slider__135-left"></span>
+            </button>
+            <button class="auto-image-slider__right" onclick="sliderIndexInc()">
+                <span class="auto-image-slider__135-right"></span>
+                <span class="auto-image-slider__45-right"></span>
+            </button>
+            <div class="image-slider__dots">
+                <button class="image-slider__dot"></button>
+                <button class="image-slider__dot"></button>
+                <button class="image-slider__dot"></button>
+            </div>
+        </section>
+        <section class="best-recipes">
+            <div class="best-recipes__area">
+                <h1 style="text-align: center; margin-top: 5rem;">The Best Recipes</h1>
+                <div class="best-recipes__images">
+                    <div class="best-recipe__item">
+                        <!-- <div > -->
+                            <img src="images/bg2.jpg" alt="">
+                        <!-- </div> -->
+                        <div>
+                            <a href="#">dsaubcJLANC</a>
+                        </div>
+                    </div>
+                   
+                    <div class="best-recipe__item">
+                        <!-- <div > -->
+                            <img src="images/bg3.jpg" alt="">
+                            <div>
+                                <a href="">gsijvdmv;zd</a>
+                            </div>
+                            
+                        <!-- </div> -->
+                    </div>
+                    
+                    <div class="best-recipe__item">
+                        <!-- <div> -->
+                            <img src="images/bg4.jpg" alt="">
+                            <div>
+                                <a href="">fadfbjkb</a>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="best-recipe__item">
+                        <!-- <div> -->
+                            <img src="images/bg5.jpg" alt="">
+                            <div>
+                                <a href="">fadjbjl</a>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="best-recipe__item">
+                        
+                            <img src="images/bg6.jpg" alt="">
+                            <div>
+                                <a href="">fadjbjfad</a>
+                            </div>
+                       
+                    </div>
+                    <div class="best-recipe__item">
+                        <!-- <div> -->
+                            <img src="images/bg7.jpg" alt="">
+                            <div>
+                                <a href="">afdohjncx</a>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="small-recipes">
+            <div class="small-recipes__area">
+                <h1 style="text-align: center; margin-top: 3rem;">Recipes you may like</h1>
+                <div class="small-recipes__images">
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/r4.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">HAMBURGER</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/r5.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">hdfuewhf</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/bg7.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWvrb</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr1.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJ</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr2.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWNfe</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr3.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWNfeoqb</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr4.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWXQw</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr5.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWNXw</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr6.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWNXw</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr7.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWfewqf</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                    <a href="#" class="small-recipes__item">
+                        <img src="images/sr8.jpg" alt="" class="small-recipes__item-image">
+                        <div class="small-recipes__item-content">
+                            <p class="small-recipes__item-content__date">April 25, 2020</p>
+                            <p class="small-recipes__item-content__header">cIABCJWNXQhdowh</p>
+                            <p class="small-recipes__item-content__rating">Rating : 5.0</p>
+                            <p class="small-recipes__item-content__comments">2 comments</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/js/shared.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

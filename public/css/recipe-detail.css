@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+.recipe-detail {
+    max-width: 85rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto Slab', serif;
+    /* margin: 0 2%; */
+}
+
+.recipe-title {
+    font-size: 2.7rem;
+    text-align: center;
+}
+
+.recipe-image {
+    max-width: 85%;
+    max-height: 800px;
+}
+
+.recipe-info {
+    width: 85%;
+    height: 10rem;
+    margin-top: 2.5rem;
+    border: 2px solid black;
+    /* margin-bottom: 20rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-info p {
+    /* width: 100%; */
+    margin: 0.9rem 0;
+    font-weight: bold;
+}
+
+.recipe-info span {
+    color: #40ba37;
+    margin-left: 0.8rem;
+}
+
+.recipe-bottom {
+    margin-top: 3rem;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.recipe-ingredients {
+    max-width: 100%;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.recipe-ingredients p {
+    margin: 0.3rem 0;
+}
+
+.ing-header {
+    font-size: 1.4rem;
+}
+
+.recipe-description {
+    max-width: 100%;
+    flex-basis: 100%;
+}
+
+@media (min-width: 35rem) {
+    .recipe-ingredients {
+        max-width: 20%;
+        flex-basis: 20%;
+    }
+    
+    .recipe-bottom {
+        flex-direction: row;
+    }
+
+    .recipe-description {
+        max-width: 70%;
+        flex-basis: 70%;
+    }
+}

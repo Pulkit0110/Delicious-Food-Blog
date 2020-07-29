@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/recipes.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <% let n = recipes.length; 
+    for (var i=0; i < recipes.length; i++) { 
+        for (var j=0; j< n-1; j++) { 
+            if(recipes[j].dateCreated < recipes[j+1].dateCreated) {
+                var temp = recipes[j];
+                recipes[j] = recipes[j+1];
+                recipes[j+1] = temp;
+            }
+        }
+        n = n-1
+    } %>
+    <% if(recipes.length > 0) { %>
+        <section class="recipes">
+            <div class="recipes-container">
+                    <section id="recipes-background">
+                        <h1>Recipes Section</h1>
+                    </section>
+                <section class="recipes-container__items">
+                    <% for (let recipe of recipes) { %>
+                        <% var mili = recipe.dateCreated;
+                            var dated = new Date(parseInt(mili));
+                            var month = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+                            recDate = "" + month[dated.getMonth()] + " " + dated.getDate() + ", " + dated.getFullYear();
+                        %>
+                        <a href="/recipes/<%= recipe._id %>" class="recipes-container__item">
+                            <h1><%= recipe.name %></h1>
+                            <p><span>Posted On : </span><%= recDate %></p>
+                            <img src="<%= recipe.imageUrl %>" alt="<%= recipe.name %>">
+                            <!-- <% for (let ing of recipe.ingredients) { %>
+                                
+                                <p><%= ing.quantity%> of <%= ing.name%></p>
+                            <% } %> -->
+                            <!-- <p><%= recipe.description %></p> -->
+                            <p><span>Recipe By : </span><%= recipe.username %></p>
+                            
+                            </a>
+                    <% } %>
+                </section>
+            </div>
+            <div class="pagination">
+                <% if(currentPage !== 1) { %>
+                    <a href="/recipes?page=1">1</a>
+                <% } %>
+                <% if(hasPrevPage && prevPage > 1) { %>
+                    <a href="/recipes?page=<%= prevPage %>" ><%= prevPage %></a>
+                <% } %>
+                <a href="/recipes?page=<%= currentPage %>" class="active"><%= currentPage %></a>
+                <% if(hasNextPage) { %>
+                    <a href="/recipes?page=<%= nextPage %>" ><%= nextPage %></a>
+                <% } %>
+                <% if(lastPage > nextPage) { %>
+                    <a href="/recipes?page=<%= lastPage %>" ><%= lastPage %></a>
+                <% } %>
+            </div>
+        </section>
+    <% } else { %>
+        <h1>No Recipes Found</h1>
+    <% } %>
+    <script src="/js/shared.js"></script>
+</body>
+</html>

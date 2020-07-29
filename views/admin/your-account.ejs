@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/account.css">
+</head>
+<body class="background">
+    <%- include('../includes/navigation.ejs') %>
+    <section class="profile-container">
+        <h1 class="username"><%= user.username %></h1>
+        <p class="profile-content">Email : <span><%= user.email %></span></p>
+        <p class="profile-content">Firstname : <span><%= user.firstName %></span></p>
+        <p class="profile-content">Lastname : <span><%= user.lastName %></span></p>
+        <% if(editing) { %>
+            <section class="links">
+                <a href="/edit-profile/<%= user.username %>" class="btns">Edit Profile</a>
+                <a href="/view-recipes/<%= user.username %>" class="btns">Your Recipes</a>
+                <a href="/new-recipe" class="btns">Post new recipe</a>
+            </section>
+        <% } %>
+        
+    </section>
+    <script src="/js/shared.js"></script>
+    
+</body>
+</html>

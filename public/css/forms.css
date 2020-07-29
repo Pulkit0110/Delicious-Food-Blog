@@ -1,0 +1,156 @@
+.login-form {
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.login-form span {
+    color: #40ba37;
+}
+
+.form-control {
+    margin: 1.2rem 0;
+}
+
+.form-control input,
+.form-control label,
+.form-control button,
+.form-control textarea,
+.form-control__edit input,
+.form-control__edit label,
+.form-control__edit button,
+.form-control__edit textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.form-control label,
+.form-control__edit label {
+    font-size: 1.2rem;
+}
+
+.form-control input:focus,
+.form-control textarea:focus,
+.form-control__edit input:focus,
+.form-control__edit textarea:focus,
+.time input:focus,
+.yields input:focus {
+    border: 2px solid #1c8314;
+    outline: none;
+    background-color: #88f080;
+}
+
+.btn {
+    border: none;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    background-color: #40ba37;
+    color: white;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    border-bottom: 3px solid #1c8314;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.form-control__edit {
+    margin: 1.2rem 1rem;
+}
+
+
+.profile-button {
+    font: inherit;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.9rem;
+    border: none;
+    background-color: white;
+    font-family: verdana;
+    position: relative;
+}
+
+
+.profile-button:focus {
+    outline: none;
+}
+
+.profile-button:hover {
+    background-color: #40ba37;
+    color: white;
+    border-bottom: 3px solid #1c8314;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.temp {
+    color: #40ba37;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.logout-form {
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+.logout-button {
+    border: none;
+    font: inherit;
+    width: 100%;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 9.5%;
+}
+
+.logout-button:hover {
+    background-color: #40ba37;
+    color: white;
+    cursor: pointer;
+}
+
+.time {
+    font-size: 1.2rem;
+    margin: 1.3rem 0;
+}
+
+.time input {
+    width: 3rem;
+}
+
+.time p {
+    margin: 0;
+}
+
+.yields {
+    font-size: 1.2rem;
+    margin: 1.3rem 0;
+}
+
+.yields label,
+.yields input {
+    margin-right: 0.6rem;
+}
+
+.ing-input {
+    display: none;
+    font-size: 1.2rem;
+}
+
+.add-ing {
+    color: purple !important;
+    margin-left: 1rem;
+    
+}
+
+.add-ing:hover {
+    cursor: pointer;
+}

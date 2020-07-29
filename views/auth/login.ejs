@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="images/salad.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <% if(errorMessage) { %>
+        <p class="errorMessage"><%= errorMessage %></p>
+    <% } %>
+
+    <form class="login-form" action="/login" method="POST">
+        <div class="form-control">
+            <label for="username">Username or email</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <button class="btn" type="submit">Login</button>
+    </form>
+    <script src="/js/shared.js"></script>
+</body>
+</html>

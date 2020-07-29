@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/recipes.css">
+    <link rel="stylesheet" href="/css/recipe-detail.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <section class="recipes">
+        <div class="recipes-container">
+            <section id="recipes-background">
+                <h1>Recipes Section</h1>
+            </section>
+            <section class="recipe-detail">
+                <h1 class="recipe-title"><%= recipe.name %></h1>
+                <img class="recipe-image" src="<%= recipe.imageUrl %>" alt="<%= recipe.name %>">
+                <div class="recipe-info">
+                    <p>Preparation Time : <span><%= recipe.prepTime %></span></p>
+                    <p>Cooking Time : <span><%= recipe.cookingTime %></span></p>
+                    <p>Yields : <span><%= recipe.yields %> servings</span></p>
+                </div>
+                <section class="recipe-bottom">
+                    <div class="recipe-ingredients">
+                        <h1 class="ing-header">Ingredients</h1>
+                        <% for(let ing of recipe.ingredients) { %>
+                            <p style="color: #40ba37;"><%= ing.quantity %> <%= ing.name %></p>
+                        <% } %>
+                    </div>
+                    <div class="recipe-description">
+                        <h1 class="ing-header">How to make : </h1>
+                        <p><%= recipe.description %></p>
+                    </div>
+                </section>
+                
+            </section>
+        </div>
+    </section>
+    <script src="/js/shared.js"></script>
+</body>
+</html>

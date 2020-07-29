@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="shortcut icon" href="images/salad.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    
+    <%- include('../includes/navigation.ejs') %>
+    <% if(errorMessage) { %>
+        <p class="errorMessage"><%= errorMessage %></p>
+    <% } %>
+    <form class="login-form" action="/signup" method="POST">
+        <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" name="username" value="<%= oldInput.username %>" required>
+        </div>
+        <div class="form-control">
+            <label for="firstName">First name</label>
+            <input type="text" name="firstName" value="<%= oldInput.firstName %>" required>
+        </div>
+        <div class="form-control">
+            <label for="lastName">Last name</label>
+            <input type="text" name="lastName" value="<%= oldInput.lastName %>" required>
+        </div>
+        
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="email" name="email" required value="<%= oldInput.email %>">
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <div class="form-control">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" name="confirmPassword" required>
+        </div>
+        <button class="btn" type="submit">Signup</button>
+    </form>
+    <script src="/js/shared.js"></script>
+</body>
+</html>

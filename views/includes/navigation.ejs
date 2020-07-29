@@ -1,0 +1,96 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    <div>
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <a href="/" class="main-header__logo">
+            <img src="/images/logo.png" alt="Delicious - A food blog">
+        </a>
+    </div>
+    <nav class="main-nav">
+        <ul class="main-nav__items">
+            <li class="main-nav__item">
+                <a class="<%= path==='/' ? 'active' : '' %>" href="/">Home</a>
+            </li>
+            <li class="main-nav__item">
+                <a class="<%= path==='/recipes' ? 'active' : '' %>" href="/recipes">Recipes</a>
+            </li>
+            <li class="main-nav__item">
+                <a href="#">Welcome</a>
+            </li>
+            
+        
+            <% if(!isAuthenticated) { %>
+                <li class="main-nav__item">
+                    <a class="<%= path==='/login' ? 'active' : '' %>" href="/login">Login</a>
+                </li>
+                <li class="main-nav__item">
+                    <a class="<%= path==='/signup' ? 'active' : '' %>" href="/signup">Signup</a>
+                </li>
+            
+            <% } else { %>
+                <% if(firstName) { %>
+                    <button class="profile-button" onclick="profileView()"> <%= firstName %></button>
+                <% } %>
+                <!-- <form action="/logout" method="POST" class="logout-form">
+                    <button class="logout-button" type="submit">Logout</button>
+                </form> -->
+            <% } %>
+        </ul>
+    </nav>
+    <% if(isAuthenticated) { %>
+        <% if(firstName) { %>
+            <button class="profile-button temp" onclick="profileView()"> <%= firstName %></button>
+            
+        <% } %>
+    <% } %>
+    <nav class="mobile-nav">
+        <div class="mobile-header">Delicious</div>
+        <hr>
+        <ul class="mobile-nav__items">
+            <li class="mobile-nav__item">
+                <a href="/">HOME</a>
+            </li>
+            <li class="mobile-nav__item">
+                <a href="/recipes">RECIPES</a>
+            </li>
+            <li class="mobile-nav__item">
+                <a href="#">WELCOME</a>
+            </li>
+            
+        <!-- </ul>
+        <ul class="mobile-nav__items"> -->
+            <% if(!isAuthenticated) { %>
+                <li class="mobile-nav__item">
+                    <a href="/login">LOGIN</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="/signup">SIGNUP</a>
+                </li>
+            
+            <% } else { %>
+                <form action="/logout" method="POST" class="logout-form">
+                    <button class="logout-button" type="submit">LOGOUT</button>
+                </form>
+            <% } %>
+        </ul>
+    </nav>
+    
+</header>
+<section class="profile-view">
+    <div class="profile-view__container">
+        <!-- <div class="profile-view__item-container"> -->
+            <a class="profile-view__item" href="/account/<%= username %>">Your Account</a>
+        <!-- </div> -->
+        
+        <a class="profile-view__item" href="/edit-profile/<%= username %>">Edit Profile</a>
+        <a class="profile-view__item" href="/view-recipes/<%= username %>">Your Recipes</a>
+        <a class="profile-view__item" href="/new-recipe">Post a Recipe</a>
+        <form action="/logout" method="POST" class="logout-form">
+            <button class="logout-button" type="submit">Logout</button>
+        </form>
+    </div>
+</section>

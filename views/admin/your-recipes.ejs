@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/salad.png">
+    <title>Delicious</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/recipes.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <% let n = recipes.length; 
+    for (var i=0; i < recipes.length; i++) { 
+        for (var j=0; j< n-1; j++) { 
+            if(recipes[j].dateCreated < recipes[j+1].dateCreated) {
+                var temp = recipes[j];
+                recipes[j] = recipes[j+1];
+                recipes[j+1] = temp;
+            }
+        }
+        n = n-1
+    } %>
+    <section class="recipes">
+        <div class="recipes-container">
+            <section id="recipes-background">
+                <h1>Your Recipes</h1>
+            </section>
+            <section class="recipes-container__items">
+                <% for (let recipe of recipes) { %>
+                    <% var mili = recipe.dateCreated;
+                        var dated = new Date(parseInt(mili));
+                        var month = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+                        recDate = "" + month[dated.getMonth()] + " " + dated.getDate() + ", " + dated.getFullYear();
+                    %>
+                    <a href="/recipes/<%= recipe._id %>" class="recipes-container__item">
+                        <h1><%= recipe.name %></h1>
+                        <p><span>Posted On : </span><%= recDate %></p>
+                        <img src="<%= recipe.imageUrl %>" alt="<%= recipe.name %>">
+                        <% if(!editing) { %>
+                            <p><span>Recipe By : </span><%= recipe.username %></p>
+                        <% } else {%>
+                            <div class="recipe-buttons">
+                                <form action="/edit-recipe/<%= recipe._id %>" method="GET">
+                                    <button type="submit" class="edit-btn">Edit</button>
+                                </form>
+                                <form action="/delete-recipe" method="POST">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                    <input type="hidden" value="<%= recipe._id %>" name="recipeId">
+                                </form>
+                            </div>
+                            
+                        <% } %>
+                        </a>
+                <% } %>
+            </section>
+        </div>
+    </section>
+    
+    <script src="/js/shared.js"></script>
+</body>
+</html>
